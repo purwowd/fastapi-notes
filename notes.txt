@@ -1,0 +1,2 @@
+Build image: docker build -t fastapi-notes .
+Menjalankan Container: docker run -d -p 8000:8000 fastapi-notes

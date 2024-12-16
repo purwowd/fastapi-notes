@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mb-4">Notes</h1>
+<form action="/note/create" method="post" class="mb-4">
+    <div class="mb-3">
+        <input type="text" name="title" placeholder="Title" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <textarea name="content" placeholder="Content" class="form-control" rows="3" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Note</button>
+</form>
+
+<div class="list-group">
+    {% for note in notes %}
+    <a href="/note/{{ note.id }}" class="list-group-item list-group-item-action">
+        <strong>{{ note.title }}</strong>
+        <span class="text-muted">{{ note.content[:50] }}</span>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}
